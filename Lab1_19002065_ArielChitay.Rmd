@@ -1,0 +1,404 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+### 1. ¿Qué es una predicción?
+
+Obtener un pronóstico de valores dada una serie de observaciones y se usa cuando hay
+un sesgo en el valor que se está buscando.
+
+### 2 ¿Qué es una inferencia?
+
+Es un método que se realiza para hacer pronósticos de la población en base a una muestra.
+
+### 3 ¿Qué es un estimador?
+
+Es un estadístico(función que pertenece a la muestra) que se usa para estimár un parámetro de la población a estudiar. Este estimador lo deseable es que sea insesgado.
+
+### 4 Explique Brevemente cuales son las propiedades deseadas en un estimador
+
+* Insesgado o Centrado
+* Varianza mínima
+* Consistente (Que el valor del estimador tienda a ser el del parámetro)
+* Invariante
+* Robusto
+
+### 5. ¿Qué es una regresión?
+Trata el estudio de la dependencia de cierta variable (llamada variable dependiente o
+explicada) en relación a otras variable (variables independientes o explicativas). Básicamente
+se quiere estimar y/o predecir la media o valor promedio poblacional de la variable
+dependiente en términos de los valores conocidos de las variables independientes.
+
+### 6. A que nos referimos con recta de regresión poblacional?
+A un modelo matemático que trata de predecir mediante una recta, los valores de cierta
+variable dependiente Y en base a cierta variable X. Para calcular dicho modelo se utilizan
+todos los valores posibles (toda la población).
+
+### 7. A qué nos referimos con recta de regresión muestral?
+A un modelo matemático que trata de predecir mediante una recta, los valores de cierta
+variable dependiente Y en base a cierta variable X. Para calcular dicho modelo utilizamos una
+muestra de la población.
+
+### 8. Qué significa que una regresión sea lineal?
+Que el modelo matemático para realizar la predicción de los valores de la variable dependiente
+es de la forma:
+
+\begin{equation}
+y = b_{0} +b_{1}x_{1} + ... + b_{n}x_{n} \ \   {b_{0}, b_{1} !=0}
+\end{equation}
+
+### 9. Qué es una regresión lineal múltiple?
+La regresión lineal permite trabajar con una variable a nivel de intervalo o razón. De la misma manera, es posible analizar la relación entre dos o más variables a través de ecuaciones, lo que se denomina regresión múltiple o regresión lineal múltiple.
+
+Constantemente en la práctica de la investigación estadística, se encuentran variables que de
+alguna manera están relacionadas entre sí, por lo que es posible que unas de las variables
+puedan relacionarse matemáticamente en función de otra u otras variables.
+
+
+### 10. Qué son las perturbaciones en un modelo de regresión?
+Las perturbaciones son unas de las razones de la existencia de la teoría de control. Sin perturbaciones no habría necesidad de realimentación. Limitan el ancho de banda y comportamiento de un sistema. Midiendo perturbaciones se pueden detectar mal funcionamiento de los sistemas.
+
+### 11. A qué nos referimos cuando decimos "significancia estadistica" en un modelo de regresión?
+
+Se define como la probabilidad de tomar la decisión de rechazar la hipótesis nula cuando ésta es verdadera.
+
+### 12. Qué es el valor-p?
+En contrastes de hipótesis y en estadística general, el valor de p (a veces conocido simplemente como el p-valor, la p, valor de p consignado, o bien directamente en inglés pvalue) se define como la probabilidad correspondiente al estadístico de ser posible bajo la hipótesis nula. Si cumple con la condición de ser menor al nivel de significancia impuesto arbitrariamente, entonces la hipótesis nula será, eventualmente, rechazada. (valor del estadístico calculado).
+
+### 13. Qué es la prueba t y para que sirve?
+Es cualquier prueba en la que el estadístico utilizado tiene una distribución t de Student si la hipótesis nula es
+cierta. Se aplica cuando la población estudiada sigue una distribución normal pero el tamaño
+muestral es demasiado pequeño como para que el estadístico en el que está basada la
+inferencia esté normalmente distribuido.
+
+### 14. Qué es la prueba F y para que sirve?
+Se usa cuando se quiere saber si hay una relacion entre dos variables cualitativas. Se usa para comparar dos variables categoricas de dos niveles o tablas de contingencia de dos x dos. 
+
+* Las muestras deben ser independientes
+* las muestras provienen debe ser    muestreo aleatorio
+* El tamaño de la muestra debe ser menor al diez por ciento de la población.
+* Cada observacion afecta unicamente a uno de los niveles
+
+Si p<Alpha se rechaza la hipotesis nula
+Si p>alpha no se rechaza la hipotesis nula
+
+### 15. Qué es homocedasticidad y heterocedasticidad en un modelo de regresión?
+
+Se habla de homocedasticidad si el error cometido por el modelo tiene siempre la misma varianza. En particular, si el modelo es homocedástico, el valor de las variables explicativas, , no afectará a la varianza del error.
+
+
+### 16. Qué es multicolinialidad en un modelo de regresión?
+Es una condición que ocurre cuando algunas variables predictoras incluidas en el modelo están correlacionadas con otras variables predictoras. 
+
+La multicolinealidad severa es problemática, porque puede incrementar la varianza de los coeficientes de regresión, haciéndolos inestables.
+
+### 17. Que es autocorrelación en un modelo de regresión?
+Una relación entre los valores separados el uno del otro por un intervalo de tiempo dado.
+
+Es la correlación entre miembros de series de observaciones orenadas en el tiempo. En el MCRL(Modelos de regresion lineal) se supone que no hay autocorrelación entre los residuos (el echo que se suponga no quiere decir que no exista)
+
+Si hay presencia de autocorrelación los estimadores dejan de tener una varianza mínima y por tanto dejan de ser el mejor estimador lineal insesgado(MELI)
+
+Hay varios métodos por el cual la autocorrelacion se puede detecar y uno de ellos es el método gráfico o el contraste de Durbin - Watson
+
+### 18. Que nos dice el coeficiente de determinación (r^2) en un modelo de regresión?
+El coeficiente de determinación, se define como la proporción de la varianza total de la variable explicada por la regresión. 
+
+El coeficiente de determinación, también llamado R cuadrado, refleja la bondad del ajuste de un modelo a la variable que pretender explicar. Es importante saber que el resultado del coeficiente de determinación oscila entre 0 y 1. Cuanto más cerca de 1 se sitúe su valor, mayor será el ajuste del modelo a la variable que estamos intentando explicar. De forma inversa, cuanto más cerca de cero, menos ajustado estará el modelo y, por tanto, menos fiable será.
+
+### 19. Que nos dice el coeficiente de correlación (r) en un modelo de regresión?
+
+El Coeficiente de correlación es una medida que permite conocer el grado de asociación lineal entre dos variables cuantitativas (X, Y). Recordar entonces que el coeficiente de relación lineal, mide la fuerza y el sentido de la relación lineal entre 2 variables cuantitativas.
+
+### 20. Qué relación hay entre econometría y ciencia de datos?
+
+La ciencia de datos utiliza la econometría como herramienta para el análisis de datos, y
+creación de modelos.
+
+
+### 21 Diferencia entre error estandar y desviacion estandar
+
+### Valor P y Valor T
+
+## Interpretando modelo 1:
+
+A continuacion se le muestran los resultados de summary() de dos modelos de regresion realizados en R, realice una interpretacion sobre los resultados obtenidos. Recuerde tomar en cuenta la significancia de los parametros (significancia local), la signicancia del modelo (significancia global), el valor del r2: y cualquier otra cosa que considere relevante. Adjunte su analisis en el documento que realizo para la Parte #1.
+
+
+![Parte 1](modelo1lab1.PNG)
+
+### Analisis por formula 
+
+##### Análisis de la regresión lineal
+
+`call:  
+ lm(formula=ROLL ~ UNEM, data = datavar)`
+ 
+Nos indica que hara una analisis lineal de un data set de dos variables, donde la variable independiente sera ROLL y la variable predictora o dependiente sera UNEM.
+
+#### Análisis de errores
+
+![Parte 2](imagen2modelo1.PNG)
+
+*Residual = Yhat - Y*
+
+Se crea un set de datos de todos los errores encontrados entre los valores predecidos y los valores observados. El código para ver todos los residuals sería `lm(Dataset)$residuals`
+
+Los valores mostrados son:  
+
+| Valor Mínimo de errores | Valor en 25% | Valor en 50% | Valor en 75% | Último Valor |
+|------------------------|--------------|--------------|--------------|------------|
+| -7640.0 | -1046.5 | 602.8 | 1934.3 | 4187.2 |
+
+#### Coeficientes proporcionados por la ecuación
+
+![Parte 2](imagen3modelo1.PNG)
+
+Debido a que toda regresión lineal se rige por la ecuación 
+\begin{equation}
+y' = b_{0} +b_{1}x_{1}'
+\end{equation}
+
+| bo | b1 |
+|------|--------|
+| 3957.0 | 1133.8 |
+
+#### Error de los coeficientes
+
+El intercepto bo y la pendiente b1 tienen un error estandar
+
+| `bo +/- Error` | `b1 +/- Error2` |
+|------|--------|
+| [3957.0 +/- 4000.1] | [1133.8 +/- 513.1] |
+
+#### Que tan confiables son estos valores?
+
+| `t value de bo` | No confiable | 0.989  |
+|------|--------|----|
+| `t value de b1` | Poco confiable | 2.210 |
+
+#### Probabilidad que los valores salgan en el intervalo de confianza proporcionado por el modelo
+
+| `Pr(>|t|) de bo` | Probable | 0.3313  | Intervalo de confianza del 90% |
+|------|--------|----|------|
+| `Pr(>|t| de b1)` | Poco probable | 0.0358 | Intervalo de Confianza del 99 % |
+
+#### Residual Standard Error
+| RSE |  | 3049  | Será directaente proporcional al error que provocará sobre el modelo, este es nuevamente un indicador que no será confiable |
+
+#### R squared Error
+
+r^2 es una representación de saber si la predicción tiene una alta fuerza de predicción.  
+Ya que r^2 tiene numeros cercanos a 0 se  tomara como un modelo con malos predictores.
+
+#### P-Vale y F- Statistic
+
+---------------------------------------------------------------------------
+
+
+## Interpretando modelo 2:
+
+![Parte 1](imagen1modelo2.PNG)
+
+### Analisis por formula 
+
+##### Análisis de la regresión lineal
+
+`call:  
+ lm(formula=ROLL ~ UNEM, data = datavar)`
+ 
+Nos indica que hara una analisis lineal de un data set de dos variables, donde la variable independiente sera ROLL y las variables predictoras serán UNEM, HGRAD, INC.
+
+#### Análisis de errores
+
+![Parte 2](ecuacionmodelo2.PNG)
+
+*Residual = Yhat - Y*
+
+Se crea un set de datos de todos los errores encontrados entre los valores predecidos y los valores observados. El código para ver todos los residuals sería `lm(Dataset)$residuals`
+
+Los valores mostrados son:  
+
+| Valor Mínimo de errores | Valor en 25% | Valor en 50% | Valor en 75% | Último Valor |
+|------------------------|--------------|--------------|--------------|------------|
+| -1148.840 | -489.712 | -1.876 | 387.400 | 1425.753 |
+
+#### Coeficientes proporcionados por la ecuación
+
+![Parte 2](imagen2modelo2.PNG)
+
+Debido a que toda regresión lineal se rige por la ecuación 
+\begin{equation}
+y' = b_{0} +b_{1}x_{1}+b_{2}x_{2}'+b_{3}x_{3}'
+\end{equation}
+
+| bo | b1 | b2 | b3 |
+|------|--------|-----|-----|
+| -9.153x10^3| 4.501 x 10^2 | 4.501 x 10^2 | 4.255 |
+
+
+#### Que tan confiables son estos valores?
+
+| `t value de bo` | No confiable | 0.989  |
+|------|--------|----|
+| `t value de b1,b2,b3` | Significativos |
+
+#### Probabilidad que los valores salgan en el intervalo de confianza proporcionado por el modelo
+
+| `Pr(>|t|) de bo` | Poco Probable |Intervalo de confianza alto |
+|------|--------|----|------|
+| `Pr(>|t| de b1,b2,b3,b4)` | Poco probable |Intervalo de Confianza alto |
+
+#### Residual Standard Error
+| RSE |  | 670.4  | Indicador de un error moderado|
+
+#### R squared Error
+
+r^2 es una representación de saber si la predicción tiene una alta fuerza de predicción.  
+Ya que r^2 tiene numeros cercanos a 1 se  tomara como un *buen modelo* en el que podemos confiar
+
+#### P-Vale y F- Statistic
+
+Ya que la prueba F es de 211.5 podemos dar por echo que el modelo tiene datos relevantes.
+
+
+### Analisando Modelo 3
+
+![Modelo1](imagen1modelo3.png)
+
+#### Interpretación
+
+Es un modelo confiable debido a que los *t value* son altos y la probabilidad de salir del intervalo de confianza es muy bajos siendo estos representados por *Pr(>|t|)* y es muy confiable ya que su significancia es casi nula indicada por tres asteríscos `***` el error general de la ecuacion es bajo con un valor de * 5.657 * y la fuerza de prediccion interpretada por *R-squared es de 0.946* los datos son confiables ya que la *prueba de Fisher da un valor de 193.6* concluyendo que este modelo *si es confiable*
+
+# Problema 3
+
+## Carga de librerias
+```{r}
+library(dplyr)
+library(ggplot2)
+library(magrittr)
+library(corrplot)
+```
+## Carga del DataSet:
+```{r}
+
+dataSet = read.csv("Admission_Predict_Ver1.1.csv")
+head(dataSet,100)
+```
+
+Realice un analisis estadistico sobre todas las variables del dataset, recuerde que pude usar
+la funcion summary().
+
+```{r}
+summary(dataSet)
+```
+# 2. Graficas de densidad o HISTOGRAMAS:
+
+Realice una grafica de histograma o densidad para cada una de las variable numericas:
+GRE.Score, TOEFEL.Score, CGPA y Chance of Admit.
+
+#### Variable: GRE.Score
+
+```{r}
+dataSet %>%
+  ggplot(aes(x=GRE.Score, y=..density..)) +
+  #geom_histogram(bins=100, fill="yellow", colour="grey60", size=0.4) +
+  geom_density( fill="green", lwd=0.5, alpha = 0.2)+
+  theme_classic() +
+  xlim(285, 345)
+```
+
+```{r}
+qplot(dataSet$GRE.Score, geom="histogram")
+ggplot(data=dataSet, aes(dataSet$TOEFL.Score)) + 
+  geom_histogram()
+ggplot(data=dataSet, aes(dataSet$CGPA)) + 
+  geom_histogram()
+ggplot(data=dataSet, aes(dataSet$Chance.of.Admit)) + 
+  geom_histogram()
+```
+## Grafica de Correlacion entre las variables
+A continuación se presentará una serie de correlaciones entre variables predictoras, teniendo *CGPA Y chance of Admint* la correlación mas significativa. 
+
+Su promedio de calificaciones (GPA) 
+Se deriva de los grados o porcentajes de letras que obtuvo de sus asignaturas en un semestre completo, con un valor de 0-4, 0-4.7 o 0-9 en una escala de 9 puntos. También se denomina GPA general o general porque considera todos los cursos, independientemente de la facultad que los ofrezca.
+
+Un CGPA 
+es su rendimiento académico de 0,00 a 4,00, calculado como el promedio de su GPA de todos los semestres / términos completados. 
+
+¿Qué es una buena puntuación GRE? 
+Al considerar su objetivo de puntaje GRE (en el ciclo de admisión competitivo de 2019), siempre es prudente considerar los requisitos o los mínimos (si los hay) en las escuelas en las que está solicitando. Para empezar, sin embargo, esto es lo que necesita saber sobre su puntuación GRE: El GRE se puntúa en una escala en cada sección. Recibirás tanto una puntuación GRE verbal como una puntuación cuantitativa GRE. Debido a que hay tan pocas puntuaciones posibles (solo 41) que puede obtener el GRE, responder solo una pregunta más correctamente podría ser suficiente para convertir una puntuación promedio en una excelente calificación.
+
+The TOEFL iBT test is scored on a scale of 0 to 120 points. Each of the four sections (Reading, Listening, Speaking, and Writing) receives a scaled score from 0 to 30. The scaled scores from the four sections are added together to determine the total score.
+
+
+```{r}
+dataSet
+dataset2=data.frame(dataSet$GRE.Score,dataSet$TOEFL.Score,dataSet$CGPA,dataSet$Chance.of.Admit)
+dataset2
+correlacion<-round(cor(dataSet), 2)
+corrplot(correlacion, method="number", type="upper")
+correlacion<-round(cor(dataset2), 2)
+corrplot(correlacion, method="number", type="upper")
+
+```
+
+Entre todas las variables predictoraas del Dataset, las variables que nos pueden dar la mejor estimacion para poder ser admtido son
+Chance of Admint con dataSet.Chance
+
+### 5 Realice un scatter plot de todas las variables numericas contra la variable Chance of Admit.
+
+```{r}
+dataSet %>%
+  ggplot(aes(y=Chance.of.Admit, x=GRE.Score))+
+  geom_point()
+
+dataSet %>%
+  ggplot(aes(y=Chance.of.Admit, x=TOEFL.Score))+
+  geom_point()
+
+dataSet %>%
+  ggplot(aes(y=Chance.of.Admit, x=CGPA ))+
+  geom_point()
+
+```
+
+
+
+```{r}
+modelo1 <- lm(formula = Chance.of.Admit~GRE.Score,data=dataSet)
+summary(modelo1)
+print('-------------------------------------------------------')
+modelo2 <- lm(formula = Chance.of.Admit ~ TOEFL.Score, data=dataSet)
+summary(modelo2)
+print('-------------------------------------------------------')
+modelo3 <- lm(formula = Chance.of.Admit ~ CGPA, data = dataSet)
+summary(modelo3)
+
+```
+
+```{r}
+dataSet %>%
+  ggplot(aes(y=Chance.of.Admit, x=GRE.Score))+
+  geom_point()+geom_smooth(method='lm',formula=y~x)
+
+dataSet %>%
+  ggplot(aes(y=Chance.of.Admit, x=TOEFL.Score))+
+  geom_point()+geom_smooth(method='lm',formula=y~x)
+
+dataSet %>%
+  ggplot(aes(y=Chance.of.Admit, x=CGPA))+
+  geom_point()+geom_smooth(method='lm',formula=y~x)
+
+```
+
+#### 8. Como en la Parte #2, realice un analisis sobre los resultados de cada modelo y diga cual de estos considera que es mejor y por que.
+
+De los tres modelos, debido al nivel de bondad y ajuste del coeficiente de determinacion, se tomara como mejor ajuste el *modelo 3* ya que en los otros valores son similares en cuanto a confianza.
+
+
+
+

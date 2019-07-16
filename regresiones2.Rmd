@@ -1,0 +1,100 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# Modeling Bivariate relationships
+
+
+```{r}
+# Load data
+data("mtcars")
+df <- mtcars
+
+# Convert cyl as a grouping variable
+df$cyl <- as.factor(df$cyl)
+
+# Inspect the data
+head(df[, c("wt", "mpg", "cyl", "qsec")], 4)
+```
+
+# Como hacer gráficos de Dispersión simples
+```{r}
+library(ggplot2)
+ggplot(data = df, aes(y = mpg, x=wt)) + 
+  geom_point() +
+  scale_x_continuous("Escriba acá el eje X") +
+  scale_y_continuous("Escriba acá el eje Y")
+```
+
+Bivariate relationships
+
+Existen Boxplots que son como los scatterplots solamente que discretos y tienen la función de dar resultados
+en base a la cantidad de rangos que se le de. Si uno quiere dividira la data en 5 partes, la función cut() es la encargada de hacer esa labor.
+
+
+```{r}
+ggplot(data = df, aes(y = mpg, x=cut(wt,breaks = 5))) + 
+  geom_point()
+```
+
+
+## Como usar un Boxplot
+!["Ejemplos de Boxplot"](imagen2.png)
+
+
+## IQR  
+En estadística descriptiva, se le llama rango intercuartílico o rango intercuartil, a la diferencia entre el tercer y el primer cuartil de una distribución. Es una medida de la dispersión estadística.
+
+```{r}
+ggplot(data = df, aes(y= mpg, x=cut(wt, breaks = 5))) +
+  geom_boxplot()
+```
+
+## Ejercicio 1
+
+Gráfico de dispersión (Scatter Plots)
+
+Los diagramas de dispersión son las herramientas más comunes y efectivas para visualizar la relación entre dos variables numéricas.
+
+El conjunto de datos ncbirths es una muestra aleatoria de 1,000 casos tomados de un conjunto de datos más grande recopilado en 2004. Cada caso describe el nacimiento de un solo niño nacido en Carolina del Norte, junto con varias características del niño (por ejemplo, peso al nacer, duración de la gestación, etc.) .), la madre del niño (por ejemplo, la edad, el peso ganado durante el embarazo, los hábitos de fumar, etc.) y el padre del niño (por ejemplo, la edad). Puede ver el archivo de ayuda para estos datos ejecutando? Ncbirths en la consola.
+
+## Instrucciones 
+
+Usando el conjunto de datos ncbirths, haga un diagrama de dispersión utilizando ggplot () para ilustrar cómo varía el peso al nacer de estos bebés según el número de semanas de gestación.
+
+
+```{r}
+#Este codigo es el correcto, sin embargo esta version de R ya no almacenó el dataset ncbirths
+ks
+data(ncbirths)
+ggplot(data = ncbirths, aes(y=weight, x=weeks))+
+geom_point()
+```
+## Ejercicio 2
+
+Gráficos de caja como gráficos de dispersión condicionados / discretizados
+Si es útil, puedes pensar en los diagramas de caja como diagramas de dispersión para los cuales se ha discretizado la variable en el eje x.
+
+La función cut () toma dos argumentos: la variable continua que desea discretizar y el número de cortes que desea realizar en esa variable continua para discretizarla.
+
+## Instrucciones
+Usando nuevamente el conjunto de datos de ncbirths, haga un diagrama de caja que ilustre cómo varía el peso al nacer de estos bebés según el número de semanas de gestación. Esta vez, use la función cut () para discretizar la variable x en seis intervalos (es decir, cinco pausas).
+
+```{r}
+# Boxplot of weight vs. weeks
+ggplot(data = ncbirths, 
+       aes(x = cut(weeks, breaks = 6), y = weight)) + 
+  geom_boxplot()
+```
+
+
+
+
+
+
+
+
+
+
+
